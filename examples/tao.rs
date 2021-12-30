@@ -25,7 +25,7 @@ fn main() {
       Event::WindowEvent {
         event: WindowEvent::CloseRequested,
         ..
-      } => window.set_shadow(false),
+      } => *control_flow = ControlFlow::Exit,
       _ => (),
     }
   });
