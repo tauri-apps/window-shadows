@@ -6,6 +6,8 @@
 //! Linux shadows are controlled by the compositor installed on the user system and they can enable it for your app if they want.
 //! - On Windows, shadows can't be turned off on a regular(decorated) window.
 //!
+//! # Usage:
+//!
 //! Import the [`Shadows`] trait and use [`Shadows::set_shadow()`] on your window type
 //! - Tauri:
 //!   ```ignore
