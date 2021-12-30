@@ -1,14 +1,14 @@
 //! Add native shadows to your Tauri/TAO windows.
 //!
-//! # Platforms Note:
+//! # Platform support:
 //!
-//! - Only Windows and macOS are supported,
-//! Linux shadows are controlled by the compositor installed on the user system and they can enable it for your app if they want.
-//! - On Windows, shadows can't be turned off on a regular(decorated) window.
+//! - **Windows:** Yes, but shadows can't be turned off for a normal (decorated) window.
+//! - **macOS:** Yes!
+//! - **Linux:** No, shadows are controlled by the compositor installed on the user system and they can enable it for your app if they want.
 //!
 //! # Usage:
 //!
-//! Import the [`Shadows`] trait and use [`Shadows::set_shadow()`] on your window type
+//! Import the [`Shadows`] trait and use [`Shadows::set_shadow()`] on your window type:
 //! - Tauri:
 //!   ```ignore
 //!   let window = app.get_window("main").unwrap();
