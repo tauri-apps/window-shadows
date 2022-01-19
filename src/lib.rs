@@ -57,7 +57,7 @@ where
 {
   fn set_shadow(&self, shadow: bool) {
     #[cfg(all(target_os = "windows", feature = "tauri-impl"))]
-    windows::set_shadow(self.hwnd().unwrap() as _, shadow);
+    windows::set_shadow(windows::HWND(self.hwnd().unwrap() as _), shadow);
     #[cfg(all(target_os = "macos", feature = "tauri-impl"))]
     macos::set_shadow(self.ns_window().unwrap() as _, shadow);
   }
@@ -67,7 +67,7 @@ where
 impl Shadows for TaoWindow {
   fn set_shadow(&self, shadow: bool) {
     #[cfg(all(target_os = "windows", feature = "tao-impl"))]
-    windows::set_shadow(self.hwnd() as _, shadow);
+    windows::set_shadow(windows::HWND(self.hwnd() as _), shadow);
     #[cfg(all(target_os = "macos", feature = "tao-impl"))]
     self.set_has_shadow(shadow);
   }

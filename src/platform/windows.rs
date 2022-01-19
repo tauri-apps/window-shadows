@@ -1,6 +1,6 @@
 #![cfg(target_os = "windows")]
 
-use windows::Win32::{
+pub use windows::Win32::{
   Foundation::HWND, Graphics::Dwm::DwmExtendFrameIntoClientArea, UI::Controls::MARGINS,
 };
 
