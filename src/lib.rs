@@ -1,3 +1,7 @@
+// Copyright 2021 Tauri Programme within The Commons Conservancy
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: MIT
+
 //! Add native shadows to your Tauri/TAO windows.
 //!
 //! # Platform support:
