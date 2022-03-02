@@ -1,6 +1,6 @@
 [package]
 name = "window-shadows"
-description = "Add native shadows to your Tauri/TAO windows."
+description = "Add native shadows to your windows."
 authors = [ "Tauri Programme within The Commons Conservancy" ]
 version = "0.0.0"
 edition = "2021"

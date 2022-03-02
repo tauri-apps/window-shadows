@@ -10,7 +10,7 @@ Add native shadows to your windows.
 
 ## Installation
 
-Add it as a dependncy in `Cargo.toml` of your Tao/Tauri project
+Add it as a dependncy in `Cargo.toml`
 ```toml
 [dependencies]
 window-shadows = { git = "https://github.com/tauri-apps/window-shadows" }
