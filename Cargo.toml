@@ -1,42 +1,34 @@
 [package]
-name = "tauri-plugin-shadows"
+name = "window-shadows"
 description = "Add native shadows to your Tauri/TAO windows."
 authors = [ "Tauri Programme within The Commons Conservancy" ]
 version = "0.0.0"
 edition = "2021"
-rust-version = "1.56"
 license = "Apache-2.0 OR MIT"
 readme = "README.md"
 repository = "https://github.com/tauri-apps/tauri-plugin-shadows"
 documentation = "https://docs.rs/tauri-plugin-shadows"
-keywords = [ "vibrancy", "acrylic", "blur", "tauri", "gui", "plugin", "tauri-plugin" ]
+keywords = [ "shadows", "tauri", "windowing", "gui", "plugin", "tauri-plugin" ]
 categories = [ "gui" ]
 
 [dependencies]
-tao = { version = "0.6", default-features = false, features = [], optional = true }
-tauri = { version = "1.0.0-rc.3", default-features = false, features = [], optional = true }
+raw-window-handle = "0.4"
 
-[target."cfg(target_os = \"windows\")".dependencies.windows]
-  version = "0.32.0"
-  features = [
-  "Win32_Foundation",
-  "Win32_Graphics_Dwm",
-  "Win32_UI_Controls"
-]
+[dev-dependencies]
+tao = "0.6"
+winit = "0.26"
+
+[target."cfg(target_os = \"windows\")".dependencies]
+windows-sys = { version = "0.33.0", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Dwm",
+    "Win32_UI_Controls"
+] }
 
 [target."cfg(target_os = \"macos\")".dependencies]
 cocoa = "0.24"
 objc = "0.2"
 
 [package.metadata.docs.rs]
-features = ["tauri-impl", "tao-impl"]
 default-target = "x86_64-pc-windows-msvc"
-targets = ["x86_64-apple-darwin", "x86_64-pc-windows-msvc"]
-
-[features]
-tao-impl = ["tao"]
-tauri-impl = ["tauri"]
-
-[[example]]
-name = "tao"
-required-features = ["tao-impl"]
+targets = [ "x86_64-apple-darwin", "x86_64-pc-windows-msvc" ]

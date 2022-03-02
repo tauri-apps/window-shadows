@@ -3,12 +3,12 @@
 // SPDX-License-Identifier: MIT
 
 fn main() {
-  use tao::{
+  use window_shadows::set_shadow;
+  use winit::{
     event::{Event, WindowEvent},
     event_loop::{ControlFlow, EventLoop},
     window::WindowBuilder,
   };
-  use window_shadows::set_shadow;
 
   let event_loop = EventLoop::new();
 

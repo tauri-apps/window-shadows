@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-License-Identifier: MIT
 
-//! Add native shadows to your Tauri/TAO windows.
+//! Add native shadows to your windows.
 //!
 //! # Platform support:
 //!
@@ -10,69 +10,71 @@
 //! - **macOS:** Yes!
 //! - **Linux:** No, shadows are controlled by the compositor installed on the user system and they can enable it for your app if they want.
 //!
-//! # Usage:
+//! # Example with [`winit`](https://docs.rs/winit)
 //!
-//! Import the [`Shadows`] trait and use [`Shadows::set_shadow()`] on your window type:
-//! - Tauri:
-//!   ```ignore
-//!   let window = app.get_window("main").unwrap();
-//!   use tauri_plugin_shadows::Shadows;
-//!   window.set_shadow(true);
-//!   ```
-//! - Tao:
-//!   ```ignore
-//!   let window = WindowBuilder::new().with_transparent(true).build(&event_loop).unwrap();
-//!   use tauri_plugin_shadows::Shadows;
-//!   window.set_shadow(true);
-//!   ```
+//! ```no_run
+//! # use winit::{event_loop::EventLoop, window::WindowBuilder};
+//! # use window_shadows::set_shadow;
+//! let event_loop = EventLoop::new();
+//!
+//! let window = WindowBuilder::new()
+//!  .with_decorations(false)
+//!  .with_transparent(true)
+//!  .build(&event_loop)
+//!  .unwrap();
+//!
+//! #[cfg(any(target_os = "windows", target_os = "macos"))]
+//! set_shadow(&window, true).unwrap();
+//! ```
 
-#![allow(unused)]
+/// Enables or disables the shadows for a window.
+pub fn set_shadow(
+  window: impl raw_window_handle::HasRawWindowHandle,
+  enable: bool,
+) -> Result<(), Error> {
+  match window.raw_window_handle() {
+    #[cfg(target_os = "macos")]
+    raw_window_handle::RawWindowHandle::AppKit(handle) => {
+      use cocoa::{appkit::NSWindow, base::id};
+      use objc::runtime::{NO, YES};
 
-mod platform;
+      unsafe {
+        handle
+          .ns_window
+          .setHasShadow_(if enable { YES } else { NO });
+      }
 
-#[cfg(target_os = "macos")]
-use crate::platform::macos;
-#[cfg(target_os = "windows")]
-use crate::platform::windows;
+      Ok(())
+    }
+    #[cfg(target_os = "windows")]
+    raw_window_handle::RawWindowHandle::Win32(handle) => {
+      use windows_sys::Win32::{
+        Graphics::Dwm::DwmExtendFrameIntoClientArea, UI::Controls::MARGINS,
+      };
 
-#[cfg(feature = "tauri-impl")]
-use tauri::{Runtime, Window as TauriWindow};
-
-#[cfg(all(target_os = "macos", feature = "tao-impl"))]
-use tao::platform::macos::WindowExtMacOS;
-#[cfg(all(target_os = "windows", feature = "tao-impl"))]
-use tao::platform::windows::WindowExtWindows;
-#[cfg(feature = "tao-impl")]
-use tao::window::Window as TaoWindow;
-
-pub trait Shadows {
-  /// Sets the shadows on the window.
-  ///
-  /// ## Platform-specific
-  ///
-  /// - **Windows:** shadows can't be turned off on a regular(decorated) window.
-  fn set_shadow(&self, shadow: bool);
-}
-
-#[cfg(feature = "tauri-impl")]
-impl<R> Shadows for TauriWindow<R>
-where
-  R: Runtime,
-{
-  fn set_shadow(&self, shadow: bool) {
-    #[cfg(all(target_os = "windows", feature = "tauri-impl"))]
-    windows::set_shadow(windows::HWND(self.hwnd().unwrap() as _), shadow);
-    #[cfg(all(target_os = "macos", feature = "tauri-impl"))]
-    macos::set_shadow(self.ns_window().unwrap() as _, shadow);
+      let m = if enable { 1 } else { 0 };
+      let margins = MARGINS {
+        cxLeftWidth: m,
+        cxRightWidth: m,
+        cyTopHeight: m,
+        cyBottomHeight: m,
+      };
+      unsafe {
+        DwmExtendFrameIntoClientArea(handle.hwnd as _, &margins);
+      };
+      Ok(())
+    }
+    _ => Err(Error::UnsupportedPlatform),
   }
 }
 
-#[cfg(feature = "tao-impl")]
-impl Shadows for TaoWindow {
-  fn set_shadow(&self, shadow: bool) {
-    #[cfg(all(target_os = "windows", feature = "tao-impl"))]
-    windows::set_shadow(windows::HWND(self.hwnd() as _), shadow);
-    #[cfg(all(target_os = "macos", feature = "tao-impl"))]
-    self.set_has_shadow(shadow);
+#[derive(Debug)]
+pub enum Error {
+  UnsupportedPlatform,
+}
+
+impl std::fmt::Display for Error {
+  fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    write!(f, "\"set_shadow()\" is only supported on Windows and macOS")
   }
 }

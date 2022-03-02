@@ -1,6 +1,6 @@
-# tauri-plugin-shadows
+# window-shadows
 
-Add native shadows to your Tauri/TAO windows.
+Add native shadows to your windows.
 
 ## Platform support
 
@@ -13,27 +13,34 @@ Add native shadows to your Tauri/TAO windows.
 Add it as a dependncy in `Cargo.toml` of your Tao/Tauri project
 ```toml
 [dependencies]
-tauri-plugin-shadows = { git = "https://github.com/tauri-apps/tauri-plugin-shadows", features = ["tauri-impl"] } # or "tao-impl" for TAO projects.
+window-shadows = { git = "https://github.com/tauri-apps/window-shadows" }
 ```
 
-## Cargo Features:
+## Examples
 
-- `tauri-impl`: for Tauri projects.
-- `tao-impl`: for TAO projects.
-
-## Usage
-Import the `Shadows` trait and use `set_shadow()` on your window type:
-- Tauri:
+- with `winit`:
     ```rs
+    use winit::{event_loop::EventLoop, window::WindowBuilder};
+    use window_shadows::set_shadow
+
+    let event_loop = EventLoop::new();
+
+    let window = WindowBuilder::new()
+    .with_decorations(false)
+    .with_transparent(true)
+    .build(&event_loop)
+    .unwrap();
+
+    #[cfg(any(target_os = "windows", target_os = "macos"))]
+    set_shadow(&window, true).unwrap();
+    ```
+
+- with `tauri`:
+    ```rs
+    use window_shadows::set_shadow
+
     let window = app.get_window("main").unwrap();
 
-    use tauri_plugin_shadows::Shadows;
-    window.set_shadow(true);
-    ```
-- Tao:
-    ```rs
-    let window = WindowBuilder::new().with_transparent(true).build(&event_loop).unwrap();
-
-    use tauri_plugin_shadows::Shadows;
-    window.set_shadow(true);
+    #[cfg(any(target_os = "windows", target_os = "macos"))]
+    set_shadow(&window, true).unwrap();
     ```
