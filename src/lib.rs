@@ -39,9 +39,7 @@ pub fn set_shadow(
       use objc::runtime::{NO, YES};
 
       unsafe {
-        handle
-          .ns_window
-          .setHasShadow_(if enable { YES } else { NO });
+        (handle.ns_window as id).setHasShadow_(if enable { YES } else { NO });
       }
 
       Ok(())
