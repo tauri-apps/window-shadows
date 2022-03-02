@@ -12,14 +12,13 @@
 //!
 //! # Example with [`winit`](https://docs.rs/winit)
 //!
-//! ```no_run
+//! ```no_run,ignore
 //! # use winit::{event_loop::EventLoop, window::WindowBuilder};
 //! # use window_shadows::set_shadow;
 //! let event_loop = EventLoop::new();
 //!
 //! let window = WindowBuilder::new()
 //!  .with_decorations(false)
-//!  .with_transparent(true)
 //!  .build(&event_loop)
 //!  .unwrap();
 //!
