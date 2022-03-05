@@ -11,14 +11,6 @@ Add native shadows to your windows.
  - **`macOS:`** Yes!
  - **`Linux:`** No, shadows are controlled by the compositor installed on the user system and they can enable it for your app if they want.
 
-## Installation
-
-Add it as a dependncy in `Cargo.toml`
-```toml
-[dependencies]
-window-shadows = { git = "https://github.com/tauri-apps/window-shadows" }
-```
-
 ## Examples
 
 - with `winit`:
