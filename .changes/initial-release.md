@@ -1,5 +1,5 @@
 ---
-"window-shadows": "patch"
+"window-shadows": "minor"
 ---
 
 Initial Release.
