@@ -8,7 +8,7 @@ license = "Apache-2.0 OR MIT"
 readme = "README.md"
 repository = "https://github.com/tauri-apps/tauri-plugin-shadows"
 documentation = "https://docs.rs/tauri-plugin-shadows"
-keywords = [ "shadows", "tauri", "windowing", "gui", "plugin", "tauri-plugin" ]
+keywords = [ "shadows", "windowing", "gui" ]
 categories = [ "gui" ]
 
 [dependencies]
