@@ -9,28 +9,10 @@ Add native shadows to your windows.
 
 - **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 
-## Examples
+## Example
 
-- with `winit`:
-    ```rs
-    use winit::{event_loop::EventLoop, window::WindowBuilder};
-    use window_shadows::set_shadow
+```rs
+use window_shadows::set_shadow
 
-    let event_loop = EventLoop::new();
-
-    let window = WindowBuilder::new()
-    .with_decorations(false)
-    .build(&event_loop)
-    .unwrap();
-
-    set_shadow(&window, true).expect("Unsupported platform!");
-    ```
-
-- with `tauri`:
-    ```rs
-    use window_shadows::set_shadow
-
-    let window = app.get_window("main").unwrap();
-
-    set_shadow(&window, true).expect("Unsupported platform!");
-    ```
+set_shadow(&window, true).expect("Unsupported platform!");
+```
