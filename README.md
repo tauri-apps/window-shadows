@@ -12,7 +12,7 @@ Add native shadows to your windows.
 ## Example
 
 ```rs
-use window_shadows::set_shadow
+use window_shadows::set_shadow;
 
 set_shadow(&window, true).expect("Unsupported platform!");
 ```

@@ -13,7 +13,7 @@
 //! ```no_run
 //! use window_shadows::set_shadow;
 //!
-//! # let window;
+//! # let window: &dyn raw_window_handle::HasRawWindowHandle = unsafe { std::mem::zeroed() };
 //! set_shadow(&window, true).expect("Unsupported platform!");
 //! ```
 
