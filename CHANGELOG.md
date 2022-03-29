@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.1]
+
+- Update crate docs.
+  - [196fea6](https://github.com/tauri-apps/window-shadows/commit/196fea6d8059c1d3d73837c842bb89f6138dbad7) chore: update crate cos on 2022-03-29
+
 ## \[0.1.0]
 
 - Initial Release.
