@@ -18,8 +18,7 @@ fn main() {
     .build(&event_loop)
     .unwrap();
 
-  #[cfg(any(target_os = "windows", target_os = "macos"))]
-  let _ = set_shadow(&window, true);
+  set_shadow(&window, true).expect("Unsupported platform!");
 
   window.set_title("A fantastic window!");
 
