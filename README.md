@@ -5,11 +5,9 @@
 
 Add native shadows to your windows.
 
-## Platform support
+## Platform-specific
 
- - **`Windows:`** Yes, but shadows can't be turned off for a normal (decorated) window.
- - **`macOS:`** Yes!
- - **`Linux:`** No, shadows are controlled by the compositor installed on the user system and they can enable it for your app if they want.
+- **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 
 ## Examples
 
@@ -25,8 +23,7 @@ Add native shadows to your windows.
     .build(&event_loop)
     .unwrap();
 
-    #[cfg(any(target_os = "windows", target_os = "macos"))]
-    set_shadow(&window, true).unwrap();
+    set_shadow(&window, true).expect("Unsupported platform!");
     ```
 
 - with `tauri`:
@@ -35,6 +32,5 @@ Add native shadows to your windows.
 
     let window = app.get_window("main").unwrap();
 
-    #[cfg(any(target_os = "windows", target_os = "macos"))]
-    set_shadow(&window, true).unwrap();
+    set_shadow(&window, true).expect("Unsupported platform!");
     ```

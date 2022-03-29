@@ -4,29 +4,24 @@
 
 //! Add native shadows to your windows.
 //!
-//! # Platform support:
+//! ## Platform-specific
 //!
-//! - **Windows:** Yes, but shadows can't be turned off for a normal (decorated) window.
-//! - **macOS:** Yes!
-//! - **Linux:** No, shadows are controlled by the compositor installed on the user system and they can enable it for your app if they want.
+//! - **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 //!
-//! # Example with [`winit`](https://docs.rs/winit)
+//! # Example
 //!
-//! ```no_run,ignore
-//! # use winit::{event_loop::EventLoop, window::WindowBuilder};
-//! # use window_shadows::set_shadow;
-//! let event_loop = EventLoop::new();
+//! ```no_run
+//! use window_shadows::set_shadow;
 //!
-//! let window = WindowBuilder::new()
-//!  .with_decorations(false)
-//!  .build(&event_loop)
-//!  .unwrap();
-//!
-//! #[cfg(any(target_os = "windows", target_os = "macos"))]
-//! set_shadow(&window, true).unwrap();
+//! # let window;
+//! set_shadow(&window, true).expect("Unsupported platform!");
 //! ```
 
 /// Enables or disables the shadows for a window.
+///
+/// ## Platform-specific
+///
+/// - **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 pub fn set_shadow(
   window: impl raw_window_handle::HasRawWindowHandle,
   enable: bool,
