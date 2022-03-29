@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.1.2]
+
+- Fix docs failing because of a wrong example.
+  - [ca3b8a1](https://github.com/tauri-apps/window-shadows/commit/ca3b8a11f6b9bf456f2372684bd4fabef74504a0) fix: fix docs on 2022-03-29
+
 ## \[0.1.1]
 
 - Update crate docs.
