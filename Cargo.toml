@@ -23,7 +23,7 @@ tao = "0.8"
 winit = "0.26"
 
 [target."cfg(target_os = \"windows\")".dependencies]
-windows-sys = { version = "0.36.0", features = [
+windows-sys = { version = "0.36.1", features = [
   "Win32_Foundation",
   "Win32_Graphics_Dwm",
   "Win32_UI_Controls"
