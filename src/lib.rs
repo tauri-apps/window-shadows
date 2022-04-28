@@ -6,6 +6,7 @@
 //!
 //! ## Platform-specific
 //!
+//! - **Windows**: On Windows 11, the window will also have rounded corners.
 //! - **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 //!
 //! # Example
