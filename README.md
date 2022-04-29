@@ -17,3 +17,13 @@ use window_shadows::set_shadow;
 
 set_shadow(&window, true).expect("Unsupported platform!");
 ```
+
+## Screenshots
+
+<p align="center">
+
+| Windows | macOS |
+| :---:   | :---: |
+| ![Windows screenshot](./screenshots/windows.png) | ![macOS screenshot](./screenshots/windows.png) |
+
+</p>
