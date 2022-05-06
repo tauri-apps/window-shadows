@@ -8,6 +8,7 @@ Add native shadows to your windows.
 ## Platform-specific
 
 - **Windows**: On Windows 11, the window will also have rounded corners.
+- **macOS**: Shadows are always disabled for transparent windows.
 - **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 
 ## Example

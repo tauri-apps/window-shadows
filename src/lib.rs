@@ -7,6 +7,7 @@
 //! ## Platform-specific
 //!
 //! - **Windows**: On Windows 11, the window will also have rounded corners.
+//! - **macOS**: Shadows are always disabled for transparent windows.
 //! - **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 //!
 //! # Example
@@ -22,6 +23,8 @@
 ///
 /// ## Platform-specific
 ///
+/// - **Windows**: On Windows 11, the window will also have rounded corners.
+/// - **macOS**: Shadows are always disabled for transparent windows.
 /// - **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 pub fn set_shadow(
   window: impl raw_window_handle::HasRawWindowHandle,

@@ -14,7 +14,6 @@ fn main() {
 
   let window = WindowBuilder::new()
     .with_decorations(false)
-    .with_transparent(true)
     .build(&event_loop)
     .unwrap();
 
