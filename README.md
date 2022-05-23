@@ -24,6 +24,6 @@ set_shadow(&window, true).expect("Unsupported platform!");
 
 | Windows | macOS |
 | :---:   | :---: |
-| ![Windows screenshot](./screenshots/windows.png) | ![macOS screenshot](./screenshots/windows.png) |
+| ![Windows screenshot](./screenshots/windows.png) | ![macOS screenshot](./screenshots/macOS.png) |
 
 </p>
