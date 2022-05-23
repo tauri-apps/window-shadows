@@ -1,5 +1,14 @@
 # Changelog
 
+## \[0.1.3]
+
+- Update documentation about macOS transparent windows.
+  - [196fea6](https://github.com/tauri-apps/window-shadows/commit/196fea6d8059c1d3d73837c842bb89f6138dbad7) chore: update crate cos on 2022-03-29
+  - [5ec769e](https://github.com/tauri-apps/window-shadows/commit/5ec769e6a14c25ed824604020ab3d2d1bf21e413) publish new versions ([#17](https://github.com/tauri-apps/window-shadows/pull/17)) on 2022-03-29
+  - [918b3dd](https://github.com/tauri-apps/window-shadows/commit/918b3ddc0a7359ad540067ef1ec6f6cbe7052c55) docs: update docs for macOS transparent windows on 2022-05-06
+- Add screenshots
+  - [c908533](https://github.com/tauri-apps/window-shadows/commit/c9085333e1867f840509ffdc1cab869dd06b768c) chore: add screenshots ([#24](https://github.com/tauri-apps/window-shadows/pull/24)) on 2022-05-23
+
 ## \[0.1.2]
 
 - Fix docs failing because of a wrong example.
