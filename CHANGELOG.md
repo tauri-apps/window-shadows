@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.2.0]
+
+- Update `raw-window-handle` dependency to 0.5
+  - [26f0c3c](https://github.com/tauri-apps/window-shadows/commit/26f0c3c3c7e8d2ab47009987ae4027b67b891f40) chore(deps): update raw-window-handle to 0.5 on 2022-07-25
+
 ## \[0.1.3]
 
 - Update documentation about macOS transparent windows.
