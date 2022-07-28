@@ -3,7 +3,9 @@
   windows_subsystem = "windows"
 )]
 
+use tauri::Manager;
 use window_shadows::set_shadow;
+
 fn main() {
   tauri::Builder::default()
     .setup(|app| {
