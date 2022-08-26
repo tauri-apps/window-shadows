@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "MIT",
+  "license": "MIT OR Apache-2.0",
   "dependencies": {
     "@tauri-apps/cli": "^1.0.0"
   }
