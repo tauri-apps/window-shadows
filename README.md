@@ -16,7 +16,8 @@ Add native shadows to your windows.
 ```rs
 use window_shadows::set_shadow;
 
-set_shadow(&window, true).expect("Unsupported platform!");
+#[cfg(any(windows, target_os = "macos"))]
+set_shadow(&window, true).unwrap();
 ```
 
 ## Screenshots

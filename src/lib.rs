@@ -16,7 +16,8 @@
 //! use window_shadows::set_shadow;
 //!
 //! # let window: &dyn raw_window_handle::HasRawWindowHandle = unsafe { std::mem::zeroed() };
-//! set_shadow(&window, true).expect("Unsupported platform!");
+//! #[cfg(any(windows, target_os = "macos"))]
+//! set_shadow(&window, true).unwrap();
 //! ```
 
 /// Enables or disables the shadows for a window.
