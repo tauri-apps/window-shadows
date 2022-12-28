@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.2.1]
+
+- Update docs to include conditional compliation flags.
+  - [a9db8cf](https://github.com/tauri-apps/window-shadows/commit/a9db8cf57317ed4383a094daef33e0cc9875b702) chore: update docs on 2022-12-29
+
 ## \[0.2.0]
 
 - Update `raw-window-handle` dependency to 0.5
