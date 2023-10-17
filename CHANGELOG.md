@@ -1,5 +1,9 @@
 # Changelog
 
+## \[0.2.2]
+
+- [`791c43d`](https://github.com/tauri-apps/window-shadows/commit/791c43def0e802a47a7b163e7bc612b3a0faf794) Update `windows-sys` version to `0.48`
+
 ## \[0.2.1]
 
 - Update docs to include conditional compliation flags.
