@@ -29,7 +29,7 @@
 /// - **Linux**: Unsupported, Shadows are controlled by the compositor installed on the end-user system.
 pub fn set_shadow(
     window: impl raw_window_handle::HasRawWindowHandle,
-    enable: bool,
+    #[allow(unused)] enable: bool,
 ) -> Result<(), Error> {
     match window.raw_window_handle() {
         #[cfg(target_os = "macos")]
