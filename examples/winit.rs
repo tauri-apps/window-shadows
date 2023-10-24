@@ -21,15 +21,17 @@ fn main() {
 
     window.set_title("A fantastic window!");
 
-    event_loop.run(move |event, event_loop| {
-        event_loop.set_control_flow(ControlFlow::Wait);
+    event_loop
+        .run(move |event, event_loop| {
+            event_loop.set_control_flow(ControlFlow::Wait);
 
-        match event {
-            Event::WindowEvent {
+            if let Event::WindowEvent {
                 event: WindowEvent::CloseRequested,
                 ..
-            } => event_loop.exit(),
-            _ => (),
-        }
-    });
+            } = event
+            {
+                event_loop.exit()
+            }
+        })
+        .unwrap();
 }
