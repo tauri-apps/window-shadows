@@ -10,7 +10,7 @@ fn main() {
         window::WindowBuilder,
     };
 
-    let event_loop = EventLoop::new();
+    let event_loop = EventLoop::new().unwrap();
 
     let window = WindowBuilder::new()
         .with_decorations(false)
@@ -21,14 +21,14 @@ fn main() {
 
     window.set_title("A fantastic window!");
 
-    event_loop.run(move |event, _, control_flow| {
-        *control_flow = ControlFlow::Wait;
+    event_loop.run(move |event, event_loop| {
+        event_loop.set_control_flow(ControlFlow::Wait);
 
         match event {
             Event::WindowEvent {
                 event: WindowEvent::CloseRequested,
                 ..
-            } => *control_flow = ControlFlow::Exit,
+            } => event_loop.exit(),
             _ => (),
         }
     });
