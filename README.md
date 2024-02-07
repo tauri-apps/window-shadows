@@ -1,8 +1,9 @@
-> # ⚠️ ARCHIVE NOTICE ⚠️
+> [!warning]
+> # ARCHIVE NOTICE
 > 
-> This crate is no longer maintained, it served its purpose which was an interim solution to enable shadows on undecorated windows for `tao` and `tauri` with a unified function.
+> This crate is **Unmaintained**! it served its purpose which was an interim solution to enable shadows on undecorated windows for `tao` and `tauri`.
 > 
-> As of `tauri@v2` and recent versions of `tao` and `winit`, they all support enablind/disabling shadows by default.
+> As of `tauri@v2` and recent versions of `tao` and `winit`, they all support enablind/disabling shadows so this crate is not needed.
 >
 > If you're using `tauri@v1` and need this crate, don't worry, this crate will still function with `tauri@v1` without any problems.
 
